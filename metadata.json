@@ -1,0 +1,7 @@
+{
+  "name": "Nebula Hand v1.3",
+  "description": "A real-time interactive 3D particle system shaped like Saturn. Use your hand gestures to expand and contract the universe, revealing AI-generated poetic wisdom.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
