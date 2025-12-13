@@ -47,6 +47,17 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: node-app
+
+      # ⚠️ 临时调试步骤：验证 Secret 是否可访问 ⚠️
+      - name: Verify Secret Access
+        env:
+          MY_CLIENT_ID: ${{ secrets.AZUREAPPSERVICE_CLIENTID_f94ab636-a347-4ec1-b5b8-1be3db6d6b17 }}
+          MY_TENANT_ID: ${{ secrets.AZUREAPPSERVICE_TENANTID_06604e6f-df53-411b-b0ec-6cf3968b89a4 }}
+        run: |
+          echo "Client ID Status: ${MY_CLIENT_ID:?"Client ID is EMPTY or not found!"}"
+          echo "Tenant ID Status: ${MY_TENANT_ID:?"Tenant ID is EMPTY or not found!"}"
+      # ⚠️ 调试结束 ⚠️
+
       
       - name: Login to Azure
         uses: azure/login@v2
@@ -64,4 +75,5 @@ jobs:
           package: .
 
           
+
 
